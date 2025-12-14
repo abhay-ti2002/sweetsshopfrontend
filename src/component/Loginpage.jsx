@@ -23,7 +23,7 @@ const LoginPage = () => {
         },
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("token") || ""}`, // optional for existing token
+            Authorization: `Bearer ${localStorage.getItem(res.data.token) || ""}`, // optional for existing token
           },
         }
       );
