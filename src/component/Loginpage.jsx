@@ -21,16 +21,25 @@ const LoginPage = () => {
           email,
           password,
         },
-        { withCredentials: true }
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token") || ""}`, // optional for existing token
+          },
+        }
       );
       //   dispatch(addUsers(res.data));
       // dispatch(addStatus(res.status));
+      if (res.data.token) {
+        localStorage.setItem("token", res.data.token);
+      }
       console.log(res);
       navigate("/sweets");
     } catch (error) {
       // navigate("/login");
       console.log("LoginPage", error);
     }
+    
   };
 
   return (

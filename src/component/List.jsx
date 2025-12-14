@@ -9,7 +9,11 @@ const List = () => {
   // Fetch all sweets initially
   const fetchAllSweets = async () => {
     try {
+      const token = localStorage.getItem("token");
       const res = await axios.get(BASE_URL + "/view/sweets", {
+        headers: {
+          Authorization: `Bearer ${token}`, // send JWT
+        },
         withCredentials: true,
       });
       setData(res?.data?.sweets || res?.data);
@@ -21,8 +25,12 @@ const List = () => {
   // Search sweets from API
   const fetchSearchSweets = async (query) => {
     try {
+      const token = localStorage.getItem("token");
       const res = await axios.get(BASE_URL + "/sweets/search", {
         params: { name: query },
+        headers: {
+          Authorization: `Bearer ${token}`, // send JWT
+        },
         withCredentials: true,
       });
       setData(res?.data?.sweets || []);
