@@ -15,30 +15,23 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
+      
       const res = await axios.post(
         BASE_URL + "/login",
         {
           email,
           password,
         },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem(res.data.token) || ""}`, // optional for existing token
-          },
-        }
+        { withCredentials: true }
       );
       //   dispatch(addUsers(res.data));
       // dispatch(addStatus(res.status));
-      if (res.data.token) {
-        localStorage.setItem("token", res.data.token);
-      }
       console.log(res);
       navigate("/sweets");
     } catch (error) {
       // navigate("/login");
       console.log("LoginPage", error);
     }
-    
   };
 
   return (
