@@ -14,7 +14,7 @@ const List = () => {
         headers: {
           Authorization: `Bearer ${token}`, // send JWT
         },
-        withCredentials: true,
+       
       });
       setData(res?.data?.sweets || res?.data);
     } catch (error) {
@@ -31,7 +31,6 @@ const List = () => {
         headers: {
           Authorization: `Bearer ${token}`, // send JWT
         },
-        withCredentials: true,
       });
       setData(res?.data?.sweets || []);
     } catch (error) {

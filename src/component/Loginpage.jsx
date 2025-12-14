@@ -22,7 +22,6 @@ const LoginPage = () => {
           password,
         },
         {
-          withCredentials: true,
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token") || ""}`, // optional for existing token
           },
