@@ -8,10 +8,12 @@ const List = () => {
 
   // Fetch all sweets initially
   const fetchAllSweets = async () => {
+    console.log("b", BASE_URL + "/view/sweets");
     try {
       const res = await axios.get(BASE_URL + "/view/sweets", {
         withCredentials: true,
       });
+      console.log(res);
       setData(res?.data?.sweets || res?.data);
     } catch (error) {
       console.log("Error fetching sweets:", error);
