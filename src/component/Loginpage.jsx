@@ -24,6 +24,11 @@ const LoginPage = () => {
         },
         { withCredentials: true }
       );
+
+      // Save token
+      sessionStorage.setItem("token", res.data.token);
+      
+        
       //   dispatch(addUsers(res.data));
       // dispatch(addStatus(res.status));
       console.log(res);

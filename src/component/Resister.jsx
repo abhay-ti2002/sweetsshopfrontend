@@ -22,10 +22,12 @@ const Resister = () => {
           userName,
           email,
           password,
-         
         },
         { withCredentials: true }
       );
+
+      sessionStorage.setItem("token", res.data.token);
+        
       //   dispatch(addUsers(res.data));
       // dispatch(addStatus(res.status));
       console.log(res);
